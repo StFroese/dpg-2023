@@ -4,8 +4,12 @@
 \documentclass[aspectratio=1610, 9pt]{beamer}
 
 % Load packages you need here
-\usepackage{polyglossia}
-\setmainlanguage{german}
+% \usepackage{polyglossia}
+% \setmainlanguage{american}
+
+% IACT Tikz
+\usepackage{tikz}
+\usepackage{iacttikz}
 
 \usepackage{csquotes}
 
@@ -16,6 +20,7 @@
 
 \usepackage{hyperref}
 \usepackage{bookmark}
+
 
 % load the theme after all packages
 
@@ -44,7 +49,53 @@
 
 \maketitle
 
-\begin{frame}{Getting Started}
-    This is the first slide, wow.
+\begin{frame}
+  \begin{center}
+    \fontsize{40}{48} \selectfont\textcolor{tugreen}{Cherenkov Telescope Array}
+  \end{center}
 \end{frame}
+
+\begin{frame}
+  \begin{center}
+    \fontsize{40}{48} \selectfont\textcolor{tugreen}{Extensive Air Showers}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+    \centering
+    \begin{tikzpicture}[transform canvas={scale=0.8, xshift=-3.5cm, yshift=-5.5cm}]
+      \clip (-6,0) rectangle (13,9);
+      
+      \mountainrange
+      \lightpool
+      \cherenkovdiagram
+      \initgamma
+      \airshower
+      \heitlermodel
+      \telescopes
+      \cameraframe
+      \cherenkovdesc
+      \easdesc
+      \cameradesc
+    \end{tikzpicture}
+\end{frame}
+
+\begin{frame}
+  \begin{center}
+    \fontsize{40}{48} \selectfont\textcolor{tugreen}{3D Shower Model}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \begin{center}
+      \fontsize{40}{48} \selectfont\textcolor{tugreen}{ctapipe - Implementation}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \begin{center}
+    \fontsize{40}{48} \selectfont\textcolor{tugreen}{Conclusion}
+  \end{center}
+\end{frame}
+
 \end{document}
