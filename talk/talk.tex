@@ -1,0 +1,50 @@
+% This example is meant to be compiled with lualatex or xelatex
+% The theme itself also supports pdflatex
+\PassOptionsToPackage{unicode}{hyperref}
+\documentclass[aspectratio=1610, 9pt]{beamer}
+
+% Load packages you need here
+\usepackage{polyglossia}
+\setmainlanguage{german}
+
+\usepackage{csquotes}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\usepackage{hyperref}
+\usepackage{bookmark}
+
+% load the theme after all packages
+
+\usetheme[
+  showtotalframes, % show total number of frames in the footline
+  % dark, % optional dark theme, uncomment to use
+]{tudo}
+
+% Put settings here, like
+\unimathsetup{
+  math-style=ISO,
+  bold-style=ISO,
+  nabla=upright,
+  partial=upright,
+  mathrm=sym,
+}
+
+\title{3D Shower Reconstruction with the Cherenkov Telescope Array}
+\author[S.~Fröse]{Stefan Fröse}
+\institute[WG Elsässer]{WG Elsässer \\  Faculty of Physics}
+\date{22.03.2023}
+\titlegraphic{\includegraphics[width=0.7\textwidth]{logos/ctapipe_logo.png}}
+
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}{Getting Started}
+    This is the first slide, wow.
+\end{frame}
+\end{document}
