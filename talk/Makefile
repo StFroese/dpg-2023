@@ -1,4 +1,4 @@
-all: build/talk.pdf
+all: download_images build/talk.pdf
 
 texoptions = \
 	     --lualatex \
@@ -8,6 +8,12 @@ texoptions = \
 
 build/talk.pdf: FORCE | build
 	latexmk $(texoptions) talk.tex
+
+download_images: build/images
+	curl -o build/images/telescope_render.jpg https://live.staticflickr.com/65535/30329828142_122b021818_o_d.jpg
+
+build/images:
+	mkdir -p build/images
 
 preview: FORCE | build
 	latexmk $(texoptions) -pvc talk.tex

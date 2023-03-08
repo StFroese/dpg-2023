@@ -23,6 +23,7 @@
 
 \usepackage{graphicx}
 
+\usepackage{siunitx}
 
 % load the theme after all packages
 
@@ -60,13 +61,17 @@
 \begin{frame}{Cherenkov Telescope Array}
     \begin{minipage}{0.49\textwidth}
         \begin{itemize}
-            \item Some facts about CTA
+            \item Imaging Air Cherenkov Telescopes (IACTs)
+            \item Large-, Medium- and Small-Sized Telescopes
+            \item Northern array site: La Palma
+            \item Southern array site: Chile
+            \item Energy range from \SI{20}{\GeV} to \SI{300}{\TeV}
         \end{itemize}
     \end{minipage}
     \hfill
     \begin{minipage}{0.5\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{example-image-a}\\
+        \includegraphics[width=\textwidth]{build/images/telescope_render.jpg}\\
         \tiny{{\textcolor{gray}{Some credits}}}
     \end{minipage}
 \end{frame}
@@ -80,58 +85,88 @@
 \begin{frame}{Extensive Air Showers}
     \begin{minipage}{0.49\textwidth}
         \begin{itemize}
-            \item Some stuff about air showers
             \item Heitler model
+            \item Gamma ray with primary energy $E_0$
+            \item Creates electron-positron pair at splitting depth $d$
+            \item Each charged particle radiates new photon
+            \item $2^n$ particles with energy $\frac{E_0}{2^n}$
+            \item Stops at $E_\text{crit}$
         \end{itemize}
     \end{minipage}
     \hfill
     \begin{minipage}{0.5\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{example-image-a}\\
-        \tiny{{\textcolor{gray}{Some credits}}}
+        \begin{tikzpicture}
+          \heitlermodel
+        \end{tikzpicture}\\
+        \tiny{{\textcolor{gray}{Credits: Anno Knierim}}}
     \end{minipage}
 \end{frame}
 
 \begin{frame}{Extensive Air Showers}
     \begin{minipage}{0.49\textwidth}
         \begin{itemize}
-            \item Cherenkov cone
+            \item Charged particles moving higher than speed of light in air
+            \item Medium is getting polarized
+            \item High speed results in constructive inference
+            \item Produces cone-like wavefront
         \end{itemize}
     \end{minipage}
     \hfill
     \begin{minipage}{0.5\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{example-image-a}\\
-        \tiny{{\textcolor{gray}{Some credits}}}
+        \begin{tikzpicture}
+          \cherenkovdiagram
+        \end{tikzpicture}\\
+        \tiny{{\textcolor{gray}{Credits: Anno Knierim}}}
     \end{minipage}
 \end{frame}
 
 \begin{frame}{Extensive Air Showers}
-    \begin{minipage}{0.49\textwidth}
-        \begin{itemize}
-            \item Shower image
-            \item Camera image
-        \end{itemize}
-    \end{minipage}
-    \hfill
-    \begin{minipage}{0.5\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{example-image-a}\\
-        \tiny{{\textcolor{gray}{Some credits}}}
-    \end{minipage}
+    \centering
+    \begin{tikzpicture}[transform canvas={scale=0.8, xshift=-3.5cm, yshift=-5.5cm}]
+      \clip (-6,0) rectangle (13,9);
+      
+      \mountainrange
+      \initgamma
+    \end{tikzpicture}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[noframenumbering]{Extensive Air Showers}
+    \centering
+    \begin{tikzpicture}[transform canvas={scale=0.8, xshift=-3.5cm, yshift=-5.5cm}]
+      \clip (-6,0) rectangle (13,9);
+      
+      \mountainrange
+      \initgamma
+      \airshower
+      \easdesc
+    \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[noframenumbering]{Extensive Air Showers}
     \centering
     \begin{tikzpicture}[transform canvas={scale=0.8, xshift=-3.5cm, yshift=-5.5cm}]
       \clip (-6,0) rectangle (13,9);
       
       \mountainrange
       \lightpool
-      \cherenkovdiagram
       \initgamma
       \airshower
-      \heitlermodel
+      \cherenkovdesc
+      \easdesc
+    \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[noframenumbering]{Extensive Air Showers}
+    \centering
+    \begin{tikzpicture}[transform canvas={scale=0.8, xshift=-3.5cm, yshift=-5.5cm}]
+      \clip (-6,0) rectangle (13,9);
+      
+      \mountainrange
+      \lightpool
+      \initgamma
+      \airshower
       \telescopes
       \cameraframe
       \cherenkovdesc
@@ -144,6 +179,41 @@
   \begin{center}
     \fontsize{40}{48} \selectfont\textcolor{tugreen}{3D Shower Model}
   \end{center}
+\end{frame}
+
+\begin{frame}{3D Shower model}
+    \centering
+    \begin{tikzpicture}[transform canvas={scale=0.8, xshift=-3.5cm, yshift=-5.5cm}]
+      \clip (-6,0) rectangle (13,9);
+      
+      \mountainrange
+      \initgamma
+      \airshower
+      \telescopes
+      \cameraframe
+      \cameradesc
+      \easdesc
+
+      \draw[cherenkovfade,rotate=-55] (-2.95cm,6.635cm) ellipse (2cm and 0.5cm);
+      \draw[cherenkovfade,rotate=-55] (-2.95cm,7.135cm) -- (-2.95cm,6.135cm);
+      \draw[cherenkovfade,rotate=-55] (-4.95cm,6.635cm) -- (-0.95cm,6.635cm);
+
+
+
+      \path[
+        fgcolor,
+        every node/.style={font=\sffamily\small},
+        ->,
+        >=latex,
+        xshift=\globalshift
+      ] (3,6) edge[bend right] node [left] {} (2,5.445);
+
+      \node[
+        fgcolor,
+        right,
+        xshift=\globalshift
+      ] at (3,6) {\large 3D Photosphere};
+    \end{tikzpicture}
 \end{frame}
 
 \begin{frame}{3D Shower Model}
