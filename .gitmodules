@@ -1,6 +1,6 @@
 [submodule "ctapipe"]
 	path = ctapipe
 	url = git@github.com:cta-observatory/ctapipe.git
-[submodule "tikz_graphics"]
-	path = tikz_graphics
-	url = ssh://git@git.e5.physik.tu-dortmund.de:10022/app/tikz_graphics.git
+[submodule "TikZ_assortment"]
+	path = TikZ_assortment
+	url = https://github.com/aknierim/TikZ_assortment
