@@ -6,7 +6,12 @@ texoptions = \
 	     --halt-on-error \
 	     --output-directory=build
 
-build/talk.pdf: FORCE | build
+plots: build/plots/reco_0.pdf
+
+build/plots/reco_0.pdf: plots/plot_reco.py | build/plots
+	python $< $@ $(DATA)
+
+build/talk.pdf: plots FORCE | build
 	latexmk $(texoptions) talk.tex
 
 download_images: build/images/telescope_render.jpg
@@ -16,6 +21,9 @@ build/images/telescope_render.jpg: build/images
 
 build/images:
 	mkdir -p build/images
+
+build/plots:
+	mkdir -p build/plots
 
 preview: FORCE | build
 	latexmk $(texoptions) -pvc talk.tex
